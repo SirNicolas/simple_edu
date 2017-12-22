@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, FormView
+from django.views.generic.edit import CreateView, FormView, View
 from django.http import HttpResponseRedirect, JsonResponse
 
 from .models import Task
@@ -27,13 +27,17 @@ class TaskCreateView(FormView):
 class TaskListView(ListView):
     model = Task
 
+
+class CheckCodeView(View):
+
     def post(self, request, *args, **kwargs):
-        result = ''
         task_id = request.POST['task_id']
         try:
             task = Task.objects.get(id=task_id)
         except Task.DoesNotExist:
-            task = None
-        if task:
-            result = check_code(task.file)
-        return JsonResponse({'status': 'ok', 'text': result})
+            result = ''
+            without_errors = False
+        else:
+            result, without_errors = check_code(task.file)
+        return JsonResponse(
+            {'result': result, 'status': without_errors})

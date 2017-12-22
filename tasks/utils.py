@@ -2,6 +2,8 @@ import subprocess
 
 
 def check_code(file):
-    process = subprocess.Popen(["flake8", file.path], stdout=subprocess.PIPE)
-    output, error = process.communicate()
-    return output.decode('utf-8')
+    without_errors, result = subprocess.getstatusoutput("flake8 " + file.path)
+    without_errors = bool(without_errors)
+    if without_errors:
+        result = result.split('\n')
+    return result, without_errors
