@@ -1,9 +1,8 @@
 import os
+from .conf import *
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-SECRET_KEY = '$pwx4e7xd*yd^j!cbura7kz9+)99idd-@iyn@d(%onmyz$xcmr'
 
 DEBUG = True
 
@@ -50,14 +49,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'simple_edu.wsgi.application'
-
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 AUTH_PASSWORD_VALIDATORS = [
