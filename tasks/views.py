@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, FormView, View
@@ -35,9 +34,9 @@ class CheckCodeView(View):
         try:
             task = Task.objects.get(id=task_id)
         except Task.DoesNotExist:
-            result = ''
-            without_errors = False
+            errors = []
+            valid = False
         else:
-            result, without_errors = check_code(task.file)
+            errors, valid = check_code(task.file.path)
         return JsonResponse(
-            {'result': result, 'status': without_errors})
+            {'errors': errors, 'valid': valid})
