@@ -1,5 +1,4 @@
 /media
-/static
 db.sqlite3
 /.idea/*
 /simple_edu/conf.py
