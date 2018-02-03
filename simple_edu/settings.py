@@ -1,5 +1,8 @@
 import os
-from .conf import *
+try:
+    from .conf import *
+except ImportError:
+    from .example_conf import *
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
