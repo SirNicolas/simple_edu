@@ -13,7 +13,8 @@ class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     file = models.FileField()
-    status = models.CharField(max_length=1, choices=StatusEnum.choices())
+    status = models.CharField(max_length=1, choices=StatusEnum.choices(),
+                              default=StatusEnum.not_tested)
 
 
 class TestCase(models.Model):
