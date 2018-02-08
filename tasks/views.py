@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 
 from .models import Task
 from .forms import UploadFileForm
-from .utils import check_code
+from .utils import check_code, test_code
 
 
 class TaskCreateView(FormView):
@@ -40,3 +40,11 @@ class CheckCodeView(View):
             errors, valid = check_code(task.file.path)
         return JsonResponse(
             {'errors': errors, 'valid': valid})
+
+
+class TestCodeView(View):
+
+    def post(self, request, *args, **kwargs):
+        task_id = request.POST['task_id']
+        errors, valid = test_code(task_id)
+        return JsonResponse({'errors': errors, 'valid': valid})

@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='task',
             name='status',
-            field=models.CharField(choices=[('3', 'done'), ('0', 'not_tested'), ('2', 'on_review'), ('1', 'tested')], default=tasks.models.StatusEnum(0), max_length=1),
+            field=models.CharField(choices=[('3', 'done'), ('0', 'not_tested'), ('2', 'on_review'), ('1', 'tested')], default=0, max_length=1),
         ),
         migrations.AddField(
             model_name='testcase',

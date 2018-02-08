@@ -1,3 +1,6 @@
 from django.contrib import admin
+from .models import TestCase, Task, TestInOut
 
-# Register your models here.
+admin.site.register(TestCase)
+admin.site.register(Task)
+admin.site.register(TestInOut)
