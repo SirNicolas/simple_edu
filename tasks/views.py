@@ -1,6 +1,6 @@
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse_lazy
 from django.views.generic.list import ListView
-from django.views.generic.edit import CreateView, FormView, View
+from django.views.generic.edit import FormView, View
 from django.http import HttpResponseRedirect, JsonResponse
 
 from .models import Task
@@ -48,3 +48,11 @@ class TestCodeView(View):
         task_id = request.POST['task_id']
         errors, valid = test_code(task_id)
         return JsonResponse({'errors': errors, 'valid': valid})
+
+
+class TaskDeleteView(View):
+
+    def post(self, request, *args, **kwargs):
+        task_id = request.POST['task_id']
+        Task.objects.filter(id=task_id).delete()
+        return JsonResponse({'errors': [], 'valid': True})

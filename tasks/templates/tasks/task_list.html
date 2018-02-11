@@ -17,6 +17,10 @@
                   href="#" role="button"
                   data-id="{{ task.id }}"
                   data-url="{% url 'tasks:test' %}">Протестировать код</a></p>
+            <p><a class="btn btn-primary btn-lg js_submit_order"
+                  href="#" role="button"
+                  data-id="{{ task.id }}"
+                  data-url="{% url 'tasks:delete' %}">Удалить</a></p>
         </div>
     {% endfor %}
 {% endblock %}
