@@ -1,6 +1,11 @@
-# Simple education
-This project is trying to simplify the education process
-## First step:
-check code with pylint/flake8
-## Next step:
-check python package & test code
+# Getting Started
+This project trying to simplify education process 
+both for students and for reviewers (teachers)
+## Installing:
+install docker, redis
+
+install requirements:
+pip -r requirements.txt
+
+## Run:
+python manage.py runserver

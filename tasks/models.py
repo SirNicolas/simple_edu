@@ -26,7 +26,7 @@ class StatusEnum(ChoiceEnum):
 class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
-    file = models.FileField()
+    file = models.FileField(null=True)
     status = models.CharField(max_length=1, choices=StatusEnum.choices(),
                               default=StatusEnum.not_tested.value)
 

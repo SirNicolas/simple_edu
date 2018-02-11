@@ -65,7 +65,7 @@ var showCodeCheckResult = function (response) {
     }
 };
 
-$('.js_check_code').click(function (e) {
+$('.js_submit_order').click(function (e) {
     e.preventDefault();
     let taskId = this.getAttribute('data-id');
     let url = this.getAttribute('data-url');
