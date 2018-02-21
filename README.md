@@ -9,3 +9,6 @@ pip -r requirements.txt
 
 ## Run:
 python manage.py runserver
+
+## Run with docker:
+docker-compose up --force-recreate 
