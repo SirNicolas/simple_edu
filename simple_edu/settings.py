@@ -98,6 +98,7 @@ class Common(Configuration):
 
 class Dev(Common):
     SECRET_KEY = values.SecretValue()
+    ALLOWED_HOSTS = ['*']
 
 
 class Prod(Common):
